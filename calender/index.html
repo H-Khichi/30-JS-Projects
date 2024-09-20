@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calender</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="hero">
+        <div class="calender">
+            <div class="left">
+                <p id="date">01</p>
+                <p id="day">Sunday</p>
+            </div>
+
+            <div class="right">
+                <p id="month">January</p>
+                <p id="year"></p>
+            </div>
+        </div>
+    </div>
+
+
+       <script>
+        let dateElement = document.getElementById("date");
+        let dayElement = document.getElementById("day");
+        let monthElement = document.getElementById("month");
+        let yearElement = document.getElementById("year");
+
+        const today = new Date();
+
+        console.log(today)
+        const daysWeek= ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const monthsOfYear = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+
+
+        dateElement.innerHTML = (today.getDate() < 10 ? "0" : "") + today.getDate();
+        dayElement.innerHTML= daysWeek[today.getDay()];
+        monthElement.innerHTML= monthsOfYear[today.getMonth()];
+        yearElement.innerHTML= today.getFullYear();
+
+    //     // const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    //     // const monthsOfYear = [
+    //     //     "January", "February", "March", "April", "May", "June",
+    //     //     "July", "August", "September", "October", "November", "December"
+    //     // ];
+
+    //     dateElement.innerHTML = today.getDate();
+    //     dayElement.innerHTML = daysOfWeek[today.getDay()];
+    //     monthElement.innerHTML = monthsOfYear[today.getMonth()];
+    //     yearElement.innerHTML = today.getFullYear();
+    // </script>
+
+</html>

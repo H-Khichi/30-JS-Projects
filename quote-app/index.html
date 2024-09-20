@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="quote-box">
+        <h2>Quote of the day</h2>
+        <blockquote id="quote">Loading...</blockquote>
+        <span id="author">Loading...</span>
+        <div>
+            <button id="new-quote-btn">New Quote</button>
+            <button id="tweet-btn">Tweet</button>
+        </div>
+    </div>
+
+    <script>
+        const quoteElement = document.getElementById("quote");
+        const authorElement = document.getElementById("author");
+        const newQuoteBtn = document.getElementById("new-quote-btn");
+        const tweetBtn = document.getElementById("tweet-btn");
+
+        async function getQuote() {
+            try {
+                const response = await fetch("http://api.quotable.io/random");
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                quoteElement.innerHTML = `"${data.content}"`;
+                authorElement.innerHTML = `- ${data.author}`;
+            } catch (error) {
+                console.error("Error fetching the quote: ", error);
+                quoteElement.innerHTML = "Failed to load quote. Please try again.";
+                authorElement.innerHTML = "";
+            }
+        }
+
+        function tweetQuote() {
+            const tweetText = encodeURIComponent(`${quoteElement.innerHTML} ${authorElement.innerHTML}`);
+            window.open(`https://twitter.com/intent/tweet?text=${tweetText}`, "tweetWindow", "width=600,height=300");
+        }
+
+        // Event listeners
+        newQuoteBtn.addEventListener("click", getQuote);
+        tweetBtn.addEventListener("click", tweetQuote);
+
+        // Fetch the initial quote when the page loads
+        getQuote();
+    </script>
+
+</body>
+
+</html>

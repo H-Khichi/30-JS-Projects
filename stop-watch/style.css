@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background:#edeaff;
+}
+.stop-watch{
+    width: 90%;
+    max-width: 600px;
+    background: linear-gradient(rgb(0,0,0,0.8),rgb(0,0,0,0.8)),url(images/background.png);
+    background-size: cover;
+    text-align: center;
+    padding: 40px 0;
+    color: #fff;
+    margin: 200px auto 0;
+    box-shadow: 0 10px 10px rgb(0,0,0,0.2);
+}
+.stop-watch h1{
+    mask-type: 60px;
+    font-size: 64px;
+    font-weight: 300;
+}
+.stop-watch >.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0px;
+}
+.stop-watch > .button img{
+    width: 50px;
+    margin: 0 20px;
+    cursor: pointer;
+}
+.stop-watch > .button img:nth-child(2){
+    width: 80px;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toast notification</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="button">
+        <button onclick="showToast(successMsg)">Success</button>
+        <button onclick="showToast(errorMsg)">Error</button>
+        <button onclick="showToast(invalidMsg)">Invalid</button>
+    </div>
+    <div id="toast-box">
+
+    </div>
+    <script >
+        
+let toastBox= document.getElementById("toast-box")
+let successMsg='<i class="bi bi-check-circle-fill"></i> successfully submitted...;'
+let errorMsg='<i class="bi bi-x-circle-fill"></i> fix the error...';
+let invalidMsg='<i class="bi bi-exclamation-circle-fill"></i> invalid message...';
+function showToast(msg){
+   let toast = document.createElement('div')
+    toast.classList.add('toast');
+    toast.innerHTML =msg;
+    toastBox.appendChild(toast);
+
+    if(msg.includes('error')){
+        toast.classList.add('error');
+    }
+    if(msg.includes('invalid')){
+        toast.classList.add('invalid');
+    }
+    setTimeout(()=>{
+        toast.remove(toast);
+    },5000)
+}
+    </script>
+</body>
+
+</html>

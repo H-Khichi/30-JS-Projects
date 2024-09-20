@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="music-player">
+            <nav>
+                <div class="circle">
+                    <i class="bi bi-chevron-left"></i>
+                </div>
+                <div class="circle">
+                    <i class="bi bi-list"></i>
+                </div>
+                
+            </nav>
+            <img src="/music-player/media/468-thumbnail.png" alt="" class="song-img">
+            <h1>Bheegi si Bhaagi si</h1>
+            <p>Mohit Chauhan</p>
+            <audio  id="song">
+                <source src="/music-player/media/videoplayback.m4a" type="audio/mpeg">
+            </audio>
+            <input type="range" value="0" name="" id="progress">
+            <div class="controls">
+                <div><i class="bi bi-skip-backward-fill"></i></div>
+                <div onclick=" playPause()"><i class="bi bi-play-fill" id="ctrlIcon"></i></div>
+                <div><i class="bi bi-skip-forward-fill"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
